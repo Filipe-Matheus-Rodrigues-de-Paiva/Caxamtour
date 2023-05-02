@@ -1,8 +1,13 @@
+import { RegisterForm } from "../Components/RegisterForm"
+import { StyledRegister } from "./styleRegister"
+
 export default function RegisterPage () {
 
     return (
         <div>
-            <h1>Register</h1>
+            <StyledRegister>
+            <RegisterForm/>
+            </StyledRegister>
         </div>
     )
 }
