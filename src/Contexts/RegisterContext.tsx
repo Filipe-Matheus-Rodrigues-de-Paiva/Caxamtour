@@ -1,12 +1,16 @@
 /* Contexto para funções e estados da página de cadastro */
 import {createContext} from "react"
+import { api } from "../Services/api";
+import { useNavigate } from "react-router-dom";
+
+
 
 interface IChildren {
     children: React.ReactNode;
 }
 
 interface IRegisterContext {
-registerUser:(formData: IRegisterUserData) => Promise<void>
+registerUserRequest: (formData: IRegisterUserData) => Promise<void>
 }
 
 export interface IRegisterUserData {
@@ -16,16 +20,27 @@ export interface IRegisterUserData {
     password: string
     confirm:string
     }
-
+export interface IRegisterResponse{
+    user: IRegisterUserData
+    acessToken:string
+}
 
 export const RegisterContext = createContext({} as IRegisterContext)
 
 export const RegisterProvider = ({ children }: IChildren ) => {
-const registerUser=async(formData:IRegisterUserData)=>{
+    const navigate=useNavigate()
+const registerUserRequest=async(formData:IRegisterUserData)=>{
+    try {
+        await api.post<IRegisterResponse>("/users",formData)
+        navigate("/")
+
+    } catch (error) {
+        console.log(error)
+    }
 
 }
     return (
-        <RegisterContext.Provider value={{registerUser}}>
+        <RegisterContext.Provider value={{registerUserRequest}}>
             { children }
         </RegisterContext.Provider>
     )

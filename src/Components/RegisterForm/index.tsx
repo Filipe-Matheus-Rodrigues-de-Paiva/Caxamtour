@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { RegisterContext,IRegisterUserData } from "../../Contexts/RegisterContext";
 import { z } from "zod"
+import { StyledRegister } from "../../Pages/styleRegister";
+StyledRegister
 
 const schemaRegisterValidation= z.object({
-    name:z.string().min(1,"O nome é obtigatório"),
-    email: z.string().min(1,"O e-mail é obtigatório"),
-    city:   z.string().min(1,"A cidade é obtigatória"),
+    name:z.string().min(1,"O nome é obrigatório"),
+    email: z.string().min(1,"O e-mail é obrigatório"),
+    city:   z.string().min(1,"A cidade é obrigatória"),
     password: z.string().min(7, { message: "A senha é obrigatória e precisa de mínimo 7 caracteres"})
     .regex(/(?=.*?[#?!@$%^&*-])/, "É necessário pelo menos um caractere especial")
     .regex(/(?=.*?[A-Z])/, "É necessário ao menos uma letra maiúscula")
@@ -21,28 +23,30 @@ const schemaRegisterValidation= z.object({
 })
 
 export const RegisterForm=()=>{
-const {registerUser}=useContext(RegisterContext)
+const {registerUserRequest}=useContext(RegisterContext)
 const {register,handleSubmit,formState:{errors}}=useForm<IRegisterUserData>({
     resolver:zodResolver(schemaRegisterValidation)
 })
 const handleRegister:SubmitHandler<IRegisterUserData>=(formData)=>{
-    registerUser(formData)
+    registerUserRequest(formData)
 
 }
 return(
-    <div>
+    <StyledRegister>
+    <div className="headerAndForm">
     <header>
-        <img src="src/assets/images/CaxamTour.svg" alt="" />
-        <button>Voltar</button>
+        <img src="src/assets/images/CaxamTour.svg" alt="CaxamTour logo" />
+        <button className="returnButton">Voltar</button>
     </header>
     <form onSubmit={handleSubmit(handleRegister)}>
-       <InputRegister Id="name"  id="name" type="text" register={register("name")} error={errors.name}/>
-       <InputRegister Id="email"  id="email" type="email" register={register("email")} error={errors.email}/>
-       <InputRegister Id="password"  id="name" type="password" register={register("password")} error={errors.password}/>
-       <InputRegister Id="confirm"  id="confirm" type="password" register={register("confirm")} error={errors.confirm}/>
-       <button>Cadastrar-se</button>
-
+       <InputRegister Id="name" placeholder="Digite seu nome" id="name" type="text" label={"Nome"} register={register("name")} error={errors.name}/>
+       <InputRegister Id="email" placeholder="Digite seu email"  id="email" type="email" label={"Email"} register={register("email")} error={errors.email}/>
+        <InputRegister Id="city"  placeholder="Digite sua cidade"id="city" type="text" label={"Cidade"} register={register("city")} error={errors.city}/>
+       <InputRegister Id="password" placeholder="Digite sua senha"  id="name" type="password" label={"Senha"} register={register("password")} error={errors.password}/>
+       <InputRegister Id="confirm" placeholder="Confirme sua senha"  id="confirm" type="password" label={"Confirme sua Senha"}  register={register("confirm")} error={errors.confirm}/>
+       <button className="signUpButton" >Cadastrar-se</button>
     </form>
     </div>
+    </StyledRegister>
 )
 }
