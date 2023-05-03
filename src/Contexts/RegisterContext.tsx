@@ -2,6 +2,7 @@
 import {createContext} from "react"
 import { api } from "../Services/api";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 
@@ -29,16 +30,26 @@ export const RegisterContext = createContext({} as IRegisterContext)
 
 export const RegisterProvider = ({ children }: IChildren ) => {
     const navigate=useNavigate()
-const registerUserRequest=async(formData:IRegisterUserData)=>{
+    
+    const registerUserRequest=async(formData:IRegisterUserData)=>{
     try {
-        await api.post<IRegisterResponse>("/users",formData)
-        navigate("/")
+        await api.post<IRegisterResponse>("/users", formData)
+        toast.success("Cadastro realizado com sucesso!", {
+            autoClose: 2000
+        })
+
+        setTimeout(() => {
+            navigate("/")
+        }, 2000)
 
     } catch (error) {
-        console.log(error)
+        toast.error("Erro no cadastro", {
+            autoClose: 2000
+        })
     }
 
-}
+    }
+    
     return (
         <RegisterContext.Provider value={{registerUserRequest}}>
             { children }
