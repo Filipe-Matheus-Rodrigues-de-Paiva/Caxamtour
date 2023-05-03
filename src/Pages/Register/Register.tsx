@@ -1,4 +1,4 @@
-import { RegisterForm } from "../Components/RegisterForm"
+import { RegisterForm } from "../../Components/RegisterForm"
 import { StyledRegister } from "./styleRegister"
 
 export default function RegisterPage () {

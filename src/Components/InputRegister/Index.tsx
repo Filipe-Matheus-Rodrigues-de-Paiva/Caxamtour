@@ -4,7 +4,6 @@ import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
 
 interface InputRegisterProps extends InputHTMLAttributes<HTMLInputElement>{
-   Id:string;
    error?:FieldError|undefined;
    type: "text"|"email"|"password";
    register: UseFormRegisterReturn<string>;
@@ -12,12 +11,12 @@ interface InputRegisterProps extends InputHTMLAttributes<HTMLInputElement>{
    placeholder:"Digite seu nome"|"Digite seu email"|"Digite sua cidade"|"Digite sua senha"|"Confirme sua senha"
 }
 
-export const InputRegister=({type,register,Id,error,label,placeholder}:InputRegisterProps)=>{
+export const InputRegister=({ type, register, error, label, placeholder} : InputRegisterProps) => {
    return(
     <>
-    {label?<label htmlFor={type}>{label}</label>:null}
-    <input id={Id} {...register} placeholder={placeholder}/>
-    {error?<p>{error.message}</p>:null}
+       {label ? <label>{label}</label> : null}
+       <input {...register} type={type} placeholder={placeholder}/>
+       {error ? <p> {error.message} </p>:null}
     </>
    )
 }
