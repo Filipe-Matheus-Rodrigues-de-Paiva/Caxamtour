@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { LoginForm } from "../../Components/LoginForm";
-import { Conteiner, StyledHeaderLogin, StyledLogin } from "./styledUser";
+import { Conteiner, ConteinerImg, StyledHeaderLogin, StyledLogin } from "./styledUser";
+import caxamtourLogin from "../../assets/images/loginCaxamTour.jpg"
 
 export default function LoginPage () {
 
@@ -12,14 +13,14 @@ export default function LoginPage () {
                 <h1>Caxan<span>Tour</span></h1>
             </StyledHeaderLogin>
             <Conteiner>
-                <div>
-                    <img src="" alt="" />
-                </div>
+                <ConteinerImg>
+                   <img src={caxamtourLogin}/>
+                </ConteinerImg>
                 <StyledLogin>
                     <LoginForm/>
                     <div className="divButton">
                         <p>ou</p>
-                        <button onClick={() => navigate('/register')}>Registere-se</button>
+                        <button onClick={() => navigate('/register')}>Cadastre-se</button>
                     </div>
                 </StyledLogin>
             </Conteiner>

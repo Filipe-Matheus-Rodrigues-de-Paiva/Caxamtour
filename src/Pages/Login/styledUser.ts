@@ -29,6 +29,13 @@ display: flex;
 width: 100%;
 justify-content: center;
 
+@media (min-width: 900px){
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 900px;
+  justify-content: space-around;
+  }
 `
 
 export const StyledLogin = styled.div`
@@ -69,7 +76,16 @@ export const StyledLogin = styled.div`
   
   export const StyledFormLogin = styled.form`
     
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 
+      .conteinerInput{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
       label {
         font-size: 16px;
       }
@@ -100,4 +116,18 @@ export const StyledLogin = styled.div`
       p {
         color: red;
       }
+`
+
+export const ConteinerImg = styled.div`
+  width: 400px;
+  min-width: 400px;
+  display: none;
+      img{
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+      }
+      @media (min-width: 900px){
+        display: flex
+      };
 `
