@@ -24,8 +24,13 @@ export const HeaderStyled = styled.header`
         padding-right: 15px;
     }
 
-    h1 {
+    .logo {
         font-size: 1.5rem;
+
+        @media (min-width: 1024px) {
+            position: relative;
+            left: 40px;
+        }
         
         span {
             color: #33C9FF;
@@ -51,6 +56,11 @@ export const HeaderStyled = styled.header`
             position: relative;
             top: 2px;
             cursor: pointer;
+        }
+
+        @media (min-width: 1024px) {
+            position: relative;
+            right: 40px;
         }
     }
 `

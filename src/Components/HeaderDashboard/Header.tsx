@@ -16,7 +16,7 @@ export default function Header () {
 
     return (
         <HeaderStyled>
-            <h1>Caxan<span>Tour</span></h1>
+            <h1 className="logo">Caxan<span>Tour</span></h1>
             <div>
                 <button onClick={() => setModal(true)}>Favoritos <SlHeart /></button>
                 <h1>Bem-vindo, Filipe</h1>
