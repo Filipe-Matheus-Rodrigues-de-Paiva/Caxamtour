@@ -1,26 +1,22 @@
 import { useContext } from "react";
 import { HeaderStyled } from "./HeaderStyle";
 import { SlLogout, SlHeart } from "react-icons/sl"
-import { useNavigate } from "react-router-dom";
 import { DashBoardContext } from "../../Contexts/DashboardContext";
 import FavModal from "../Modais/FavModal";
+import { LoginContext } from "../../Contexts/LoginContext";
 
 export default function Header () {
-    const navigate = useNavigate()
     const { modal, setModal } = useContext(DashBoardContext)
-
-    const logOut = () => {
-        localStorage.clear()
-        navigate('/')
-    }
+    const { user, userLogout } = useContext(LoginContext)
+    console.log(user)
 
     return (
         <HeaderStyled>
             <h1 className="logo">Caxan<span>Tour</span></h1>
             <div>
                 <button onClick={() => setModal(true)}>Favoritos <SlHeart /></button>
-                <h1>Bem-vindo, Filipe</h1>
-                <span onClick={logOut}><SlLogout /></span>
+                <h1>Bem-vindo, {user?.name}</h1>
+                <span onClick={userLogout}><SlLogout /></span>
             </div>
             {modal ? (
                 <FavModal />

@@ -10,7 +10,7 @@ export default function RoutesMain () {
         <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/register" element={<RegisterProvider><RegisterPage /></RegisterProvider>}/>
-            <Route path="/dashboard/:id" element={<DashBoardProvider><Dashboard /></DashBoardProvider>} />
+            <Route path="/dashboard" element={<DashBoardProvider><Dashboard /></DashBoardProvider>} />
         </Routes>
     )
 }

@@ -45,8 +45,10 @@ export const LoginProvider = ({children}: IChildren) => {
                     Authorization: `Bearer ${token}`
                 }
                })
+               
                setUser(data)
-               navigate("/dashboard/:id")
+               navigate("/dashboard")
+            
             } catch (error) {
                 localStorage.removeItem("@TOKEN")
                 localStorage.removeItem("@IDUSER")
@@ -60,12 +62,17 @@ export const LoginProvider = ({children}: IChildren) => {
 
     const userLogin = async(formData: ILoginFormData)=>{
         try {
-            const { data } = await api.post<IUserLoginResponse>("/users", formData)
+            const { data } = await api.post<IUserLoginResponse>("/login", formData)
+
             const token = data.accessToken;
             const idUser = JSON.stringify(data.user.id)
+            
             localStorage.setItem("@TOKEN", token)
             localStorage.setItem("IDUSER", idUser)
-            setUser(user)
+            
+            setUser(data.user)
+            navigate("/dashboard")
+
         } catch (error) {
             console.log(error)
         }
