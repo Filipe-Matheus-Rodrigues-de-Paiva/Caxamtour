@@ -6,8 +6,9 @@ export const StyledModal = styled.div`
     right: 0;
     top: 0;
     width: 80vw;
-    min-height: 450px;
+    height: 100vh;
     max-width: 450px;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.25);
 
     div {
         margin-top: 20px;
@@ -21,8 +22,8 @@ export const StyledModal = styled.div`
             font-weight: 500;
             color: white;
             position: absolute;
-            left: 20px;
             top: 20px;
+            left: 10px;
         }
     }
 

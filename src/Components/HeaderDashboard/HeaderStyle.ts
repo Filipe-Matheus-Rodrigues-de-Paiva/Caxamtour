@@ -40,6 +40,7 @@ export const HeaderStyled = styled.header`
     div {
         display: flex;
         gap: 15px;
+        padding-right: 40px;
 
         button {
             background: none;
@@ -50,17 +51,13 @@ export const HeaderStyled = styled.header`
 
         h1 {
             font-size: 16px;
+            position: relative;
+            left: 10px;
+
         }
 
         span {
-            position: relative;
-            top: 2px;
             cursor: pointer;
-        }
-
-        @media (min-width: 1024px) {
-            position: relative;
-            right: 40px;
         }
     }
 `
