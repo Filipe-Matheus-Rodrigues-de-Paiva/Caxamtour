@@ -21,8 +21,8 @@ export const StyledModal = styled.div`
             font-weight: 500;
             color: white;
             position: absolute;
+            left: 20px;
             top: 20px;
-            left: 10px;
         }
     }
 
