@@ -58,7 +58,8 @@ export const StyledLogin = styled.div`
         margin-top: 15px;
         height: 40px;
         background-color: #FFB703;
-        color: black;
+        color: #023047;
+        font-weight: 600;
         border: none;
         border-radius: 4px;
         width: 100%;
@@ -91,6 +92,7 @@ export const StyledLogin = styled.div`
       }
 
       input {
+        margin-top: 10px;
         color: black;
         height: 40px;
         width: 100%;

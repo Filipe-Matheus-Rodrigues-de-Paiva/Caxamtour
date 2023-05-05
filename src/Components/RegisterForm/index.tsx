@@ -9,7 +9,7 @@ import { schemaRegisterValidation } from "../../Pages/Register/RegisterSchema";
 StyledRegister
 
 export const RegisterForm = () => {
-const {registerUserRequest}=useContext(RegisterContext)
+const {registerUserRequest,isloading}=useContext(RegisterContext)
 const {register,handleSubmit,formState:{errors}}=useForm<IRegisterUserData>({
     resolver:zodResolver(schemaRegisterValidation)
 })
@@ -33,7 +33,7 @@ return(
                 <InputRegister placeholder="Digite sua cidade" type="text" label={"Cidade"} register={register("city")} error={errors.city}/>
                 <InputRegister placeholder="Digite sua senha" type="password" label={"Senha"} register={register("password")} error={errors.password}/>
                 <InputRegister placeholder="Confirme sua senha" type="password" label={"Confirme sua Senha"}  register={register("confirm")} error={errors.confirm}/>
-                <button>Cadastrar-se</button>
+                <button disabled={isloading}>{isloading ? "Carregando..." : "Cadastrar-se"}</button>
             </form>
         </StyledRegister>
     </>

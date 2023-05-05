@@ -10,7 +10,6 @@ export const InputLogin = forwardRef(
     ({label, error, ...rest}: IInputLoginProps, ref: ForwardedRef<HTMLInputElement>) => (
         <div>
             {label ? <label>{label}</label> :null}
-            <br />
             <input ref={ref} {...rest}/>
             {error ? <p>{error.message}</p> : null}
         </div>

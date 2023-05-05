@@ -12,7 +12,7 @@ export const LoginForm = () =>{
 
     const navigate = useNavigate()
 
-    const { userLogin } = useContext(LoginContext)
+    const { userLogin, isloading } = useContext(LoginContext)
     const{
         register, 
         handleSubmit,
@@ -43,7 +43,7 @@ export const LoginForm = () =>{
                         {...register("password")}
                         error={errors.password}
                     />
-                <button type="submit">Logar</button>
+                <button type="submit" disabled={isloading}>{isloading ? "Carregando..." : "Entrar"}</button>
                 </StyledFormLogin>
 
         </>
