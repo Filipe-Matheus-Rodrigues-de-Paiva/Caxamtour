@@ -11,11 +11,12 @@ export const HeaderStyled = styled.header`
     top: 0;
     z-index: 1;
     background-color: white;
-    height: 60px;
+    height: 80px;
 
     @media (min-width: 425px) {
         flex-direction: row;
         justify-content: space-around;
+        gap: 0px;
     }
 
     @media (min-width: 1024px) {
@@ -39,10 +40,10 @@ export const HeaderStyled = styled.header`
 
     div {
         display: flex;
-        gap: 15px;
-        padding-right: 40px;
+        gap: 9px;
 
         button {
+            padding-left: 5px;
             background: none;
             border: none;
             color: blue;
@@ -50,7 +51,7 @@ export const HeaderStyled = styled.header`
         }
 
         h1 {
-            font-size: 16px;
+            font-size: 14px;
             position: relative;
             left: 10px;
 
@@ -58,6 +59,20 @@ export const HeaderStyled = styled.header`
 
         span {
             cursor: pointer;
+            padding-left: 15px;
+        }
+
+        @media (min-width: 425px) {
+            gap: 0px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            gap: 10px;
+        }
+
+        @media (min-width: 1024px) {
+            padding-right: 40px;
         }
     }
 `

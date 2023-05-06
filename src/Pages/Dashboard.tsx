@@ -15,10 +15,10 @@ export default function Dashboard () {
     }, [])
 
     return (
-        <>
+        <div>
             <Header />
             <Menu />
             <CardsList />
-        </>
+        </div>
     );
 }
