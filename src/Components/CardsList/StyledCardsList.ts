@@ -2,15 +2,20 @@ import styled from "styled-components";
 
 export const CardsListStyled = styled.section`
   margin-top: 140px;
-  margin-left: 100px;
+  display: flex;
+  justify-content: center;
   ul {
     width: 90%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 30px;
     margin-bottom: 60px;
     li {
-      width: 32%;
+      width: 300px;
+      @media (min-width: 321px) {
+        width: 31%;
+      }
       height: 300px;
       background: #d9d9d9;
       text-align: center;

@@ -8,7 +8,6 @@ import { LoginContext } from "../../Contexts/LoginContext";
 export default function Header () {
     const { modal, setModal } = useContext(DashBoardContext)
     const { user, userLogout } = useContext(LoginContext)
-    console.log(user)
 
     return (
         <HeaderStyled>
