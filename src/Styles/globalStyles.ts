@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -7,6 +7,10 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         font-family: 'Inter', sans-serif;
         outline: none;
+    }
+
+    #root {
+        min-height: 100vh;
     }
 
     input {
@@ -22,4 +26,9 @@ export const GlobalStyles = createGlobalStyle`
     ul {
         list-style: none;
     }
-`
+
+    .App {
+        display: flex;
+        flex-direction: column;
+    }
+`;
