@@ -4,6 +4,7 @@ import { CardsListStyled } from "./StyledCardsList";
 import HotelModal from "../Modais/HotelModal";
 import RestaurantModal from "../Modais/RestaurantModal";
 import EventModal from "../Modais/EventModal";
+import { Carousel } from "../Carousel"
 
 export const CardsList = () => {
   const { selectedFilter, eventsData, restaurantsData, hotelsData, setSelectedList, selectedList, selectedHotel, selectedEvent, handleOpenHotelModal, handleOpenEventModal ,handleOpenRestaurantModal ,selectedRestaurant } = useContext(DashBoardContext);
@@ -27,19 +28,22 @@ export const CardsList = () => {
 
   return (
     <>
+      {selectedFilter === "Feed" ? (
+        <Carousel />
+      ) : (
       <CardsListStyled>
         <ul>
           {selectedHotel && selectedFilter === "Hotéis" ? (
             <HotelModal />
-          ) : null}
+            ) : null}
           {selectedRestaurant && selectedFilter === "Restaurantes" ? (
             <RestaurantModal />
-          ) : null}
+            ) : null}
           {selectedEvent && selectedFilter === "Eventos" ? (
             <EventModal />
-          ) : null}
+            ) : null}
             {selectedList.map((item) => (
-                <li key={item.id}>
+              <li key={item.id}>
                     <p>{item.name}</p>
                     <img src={item.img} alt={item.name} />
                     <button onClick={() => whichFilter(item)}>Saiba mais</button>
@@ -47,6 +51,7 @@ export const CardsList = () => {
             ))}
         </ul>
       </CardsListStyled>
+      )}
     </>
   );
 };
