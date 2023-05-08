@@ -2,7 +2,10 @@ import { Navigation, Pagination, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import { StyledContainer, StyledImg } from "./style";
-
+import img1 from "../../assets/images/carousel/hotel-estrada-real.jpg"
+import img2 from "../../assets/images/carousel/hotel-gloria.jpg"
+import img3 from "../../assets/images/carousel/hotel-uniao.jpg"
+import img4 from "../../assets/images/carousel/pousada-aguas.jpg"
 
 export const Carousel = () => {
     return (
@@ -20,25 +23,25 @@ export const Carousel = () => {
             >
                 <SwiperSlide>
                     <StyledImg
-                        src="../../src/assets/images/carousel/hotel-gloria.jpg"
+                        src={img2}
                         alt="hotel glória"
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <StyledImg
-                        src="../../src/assets/images/carousel/pousada-aguas.jpg"
+                        src={img4}
                         alt="pousada águas"
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <StyledImg
-                        src="../../src/assets/images/carousel/hotel-estrada-real.jpg"
+                        src={img1}
                         alt="hotel estrada real"
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <StyledImg
-                        src="../../src/assets/images/carousel/hotel-uniao.jpg"
+                        src={img3}
                         alt="hotel união"
                     />
                 </SwiperSlide>
